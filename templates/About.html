@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About SehatAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts (same family you already use) -->
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Your main CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="./sehat_logo.png" alt="SehatAI Logo" class="logo-left">
+        <div class="brand-text">
+          <h1>SehatAI</h1>
+          <p>Health Assistant</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item" onclick="location.href='index.html'">
+          Home
+        </button>
+        <button class="nav-item active">
+          About SehatAI
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="emergency-card">
+          <strong>Emergency?</strong>
+          <p>If symptoms are severe or life-threatening, seek immediate medical help.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- TOP BAR -->
+      <div class="top-bar">
+        <h2 style="font-family: var(--font-display); color: var(--primary-dark);">
+          About SehatAI
+        </h2>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="view-container active">
+        <div class="profile-content">
+
+          <!-- WHAT IS SEHATAI -->
+          <section class="section">
+            <h3>What is SehatAI?</h3>
+            <p>
+              <strong>SehatAI</strong> is an AI-powered health assistance system designed
+              to analyze user-described symptoms and provide informational health insights.
+              It helps users understand possible health conditions and recognize when
+              medical attention may be required.
+            </p>
+            <p>
+              SehatAI does not replace doctors, clinics, or hospitals.
+              It exists to reduce uncertainty and guide users toward informed decisions.
+            </p>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section class="section">
+            <h3>How SehatAI Works</h3>
+            <ul style="padding-left: 18px; line-height: 1.8;">
+              <li>
+                <strong>Symptom Extraction:</strong>
+                User input is processed using keyword detection and symptom alias mapping.
+              </li>
+              <li>
+                <strong>Safety Checks:</strong>
+                High-risk symptoms such as bleeding, severe chest pain, or breathing
+                difficulty immediately trigger medical warnings.
+              </li>
+              <li>
+                <strong>Machine Learning:</strong>
+                A trained Naive Bayes model analyzes symptom patterns and estimates
+                probable conditions.
+              </li>
+              <li>
+                <strong>Context Awareness:</strong>
+                Food-related illness, mild viral cases, and low-confidence inputs
+                are handled separately to avoid misleading output.
+              </li>
+            </ul>
+          </section>
+
+          <!-- DISCLAIMER -->
+          <section class="section">
+            <h3>Medical Disclaimer</h3>
+            <p>
+              SehatAI provides informational suggestions only and is
+              <strong>not a medical diagnosis system</strong>.
+              Always consult a qualified healthcare professional for diagnosis,
+              treatment, or emergencies.
+            </p>
+          </section>
+
+          <!-- CREATOR -->
+          <section class="section">
+            <h3>About the Creator</h3>
+            <p>
+              SehatAI is designed and developed by <strong>Aditya Sharma</strong>,
+              a Computer Science & Engineering student with a strong focus on
+              machine learning, backend systems, and applied artificial intelligence.
+            </p>
+            <p>
+              The project prioritizes responsible AI use, safety constraints,
+              and real-world applicability instead of exaggerated claims.
+            </p>
+          </section>
+
+          <!-- LINKS -->
+          <section class="section">
+            <h3>Connect</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Portfolio</label>
+                <a href="https://your-portfolio-link.com" target="_blank">
+                  https://your-portfolio-link.com
+                </a>
+              </div>
+              <div class="info-item">
+                <label>GitHub</label>
+                <a href="https://github.com/adithedev" target="_blank">
+                  GitHub
+                </a>
+              </div>
+              <div class="info-item">
+                <label>LinkedIn</label>
+                <a href="https://www.linkedin.com/in/adi-thedev/" target="_blank">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

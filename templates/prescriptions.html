@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescriptions - Sehat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="sehat_logo.png" alt="Sehat Logo" class="logo-left">
+      <div class="brand-text">
+        <h1>Sehat</h1>
+        <p>Health Companion</p>
+      </div>
+    </div>
+
+    <button class="new-chat" onclick="window.location.href='index.html'">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      New Consultation
+    </button>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Chat
+      </a>
+      <a href="profile.html" class="nav-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Profile
+      </a>
+      <a href="prescriptions.html" class="nav-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Prescriptions
+      </a>
+      <a href="About.html" class="nav-item">
+        About Sehat
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="emergency-card">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div>
+          <strong>Emergency?</strong>
+          <p>Call 112 immediately</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="prescriptions-content">
+      <div class="section-header">
+        <h2>My Prescriptions</h2>
+        <button class="add-prescription-btn" id="addPrescriptionBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Add Prescription
+        </button>
+      </div>
+
+      <div class="prescription-filters">
+        <div class="filter-group">
+          <button class="filter-chip active" data-filter="all">
+            All <span class="chip-count" id="countAll">0</span>
+          </button>
+          <button class="filter-chip" data-filter="active">
+            Active <span class="chip-count" id="countActive">0</span>
+          </button>
+          <button class="filter-chip" data-filter="expired">
+            Expired <span class="chip-count" id="countExpired">0</span>
+          </button>
+          <button class="filter-chip" data-filter="refill">
+            Need Refill <span class="chip-count" id="countRefill">0</span>
+          </button>
+        </div>
+        <div class="sort-group">
+          <label>Sort by:</label>
+          <select id="sortSelect">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="name">Name (A-Z)</option>
+            <option value="expiry">Expiry Date</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prescriptions-grid" id="prescriptionsGrid">
+        <!-- Prescriptions will be rendered here -->
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal" id="prescriptionModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add Prescription</h3>
+      <button class="modal-close" id="closePrescriptionModal">×</button>
+    </div>
+    <form id="prescriptionForm">
+      <div class="form-group">
+        <label>Medication Name *</label>
+        <input type="text" id="medName" required placeholder="e.g., Aspirin, Metformin">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dosage *</label>
+          <input type="text" id="medDosage" required placeholder="e.g., 500mg, 10ml">
+        </div>
+        <div class="form-group">
+          <label>Form</label>
+          <select id="medForm">
+            <option>Tablet</option>
+            <option>Capsule</option>
+            <option>Liquid</option>
+            <option>Injection</option>
+            <option>Cream/Ointment</option>
+            <option>Inhaler</option>
+            <option>Drops</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Frequency *</label>
+          <select id="medFrequency" required>
+            <option>Once daily</option>
+            <option>Twice daily</option>
+            <option>Three times daily</option>
+            <option>As needed</option>
+            <option>Weekly</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Time of Day</label>
+          <select id="medTimeOfDay" multiple>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Before bed</option>
+            <option>With meals</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" id="medStartDate">
+        </div>
+        <div class="form-group">
+          <label>Duration</label>
+          <input type="text" id="medDuration" placeholder="e.g., 7 days, Ongoing">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Prescribing Doctor</label>
+        <input type="text" id="medDoctor" placeholder="Dr. John Smith">
+      </div>
+
+      <div class="form-group">
+        <label>Refills Remaining</label>
+        <input type="number" id="medRefills" min="0" value="0">
+      </div>
+
+      <div class="form-group">
+        <label>Special Instructions</label>
+        <textarea id="medNotes" rows="3" placeholder="Take with food, avoid alcohol, etc."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelPrescription">Cancel</button>
+        <button type="submit" class="btn-primary">Save Prescription</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- VIEW DETAILS MODAL -->
+<div class="modal" id="viewPrescriptionModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="viewMedName">Medication Details</h3>
+      <button class="modal-close" id="closeViewModal">×</button>
+    </div>
+    <div id="prescriptionDetails"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="closeDetailsBtn">Close</button>
+      <button class="btn-primary" id="editFromView">Edit</button>
+    </div>
+  </div>
+</div>
+
+<script src="prescriptions.js"></script>
+</body>
+</html>
