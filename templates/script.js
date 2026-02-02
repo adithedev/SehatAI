@@ -1,6 +1,8 @@
 // script.js - Working version (no page refresh + basic API integration)
 
-const API_URL = "http://localhost:5000/api/analyze";
+// const API_URL = "http://localhost:5000/api/analyze"; for local server
+const API_URL = "https://AdiTheDev-sehat-ai-backend.hf.space/api/analyze";
+
 
 const startForm   = document.getElementById("start-form");
 const startInput  = document.getElementById("startInput");
